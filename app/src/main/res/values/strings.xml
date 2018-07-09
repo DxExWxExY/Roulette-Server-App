@@ -9,5 +9,12 @@
     <string name="error_invalid_user" translatable="false">User not found</string>
     <string name="error_field_required" translatable="false">This field is required</string>
     <string name="title_activity_server" translatable="false">Server</string>
+    <string name="erase_dbs">Erase DBS</string>
+    <string name="title_activity_places_server" translatable="false">PlacesServer</string>
     <string name="erase_db">Erase DB</string>
+    <string name="view_logs">View Logs</string>
+    <string name="network_info">Server</string>
+    <string name="back_disabled">Back Disabled</string>
+    <string name="exit">Exit</string>
+    <string name="start_stop_service">Start/Stop Service</string>
 </resources>

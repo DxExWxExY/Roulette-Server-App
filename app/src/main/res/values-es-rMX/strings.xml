@@ -3,5 +3,11 @@
     <string name="app_name">Servidor</string>
     <string name="prompt_email">Usuario</string>
     <string name="prompt_password">Contraseña</string>
-    <string name="erase_db">Borrar BD</string>
+    <string name="erase_db">Borrar BDS</string>
+    <string name="erase_dbs">Borrar BD</string>
+    <string name="view_logs">Ver Logs</string>
+    <string name="network_info">Servidor</string>
+    <string name="back_disabled">Deshabilitado</string>
+    <string name="exit">Salir</string>
+    <string name="start_stop_service">Proceso</string>
 </resources>

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/clear_db"
+        android:id="@+id/show_logs"
+        android:title="@string/view_logs" />
+    <item
+        android:id="@+id/erase_dbs"
+        android:title="@string/erase_dbs" />
+    <item
+        android:id="@+id/erase_db"
         android:title="@string/erase_db" />
+    <item
+        android:id="@+id/kill_service"
+        android:title="@string/start_stop_service" />
+    <item
+        android:id="@+id/kill_app"
+        android:title="@string/exit" />
 </menu>

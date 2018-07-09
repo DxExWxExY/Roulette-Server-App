@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activities.Server"
-    tools:showIn="@layout/activity_server">
+    tools:context=".Activities.ServerLog">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Server Logs"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 </RelativeLayout>

@@ -24,9 +24,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.Server"
+            android:name=".Activities.CategoriesDisplay"
             android:label="@string/title_activity_server"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.PlacesDisplay"
+            android:label="@string/title_activity_places_server"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.ServerLog"></activity>
     </application>
 
 </manifest>
