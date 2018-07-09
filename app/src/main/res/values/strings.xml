@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Server</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">User</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in" translatable="false">Sign In</string>
+    <string name="action_sign_in_short" translatable="false">Sign In</string>
+    <string name="error_invalid_user" translatable="false">User not found</string>
+    <string name="error_field_required" translatable="false">This field is required</string>
+    <string name="title_activity_server" translatable="false">Server</string>
+    <string name="erase_db">Erase DB</string>
+</resources>
