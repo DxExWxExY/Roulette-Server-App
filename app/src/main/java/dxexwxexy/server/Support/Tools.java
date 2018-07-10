@@ -1,5 +1,9 @@
 package dxexwxexy.server.Support;
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
+import android.text.format.Formatter;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -13,7 +17,8 @@ import java.util.Locale;
 
 public class Tools {
 
-    public static String logs = "";
+    public static String logs = "", ip = "";
+    public static int port = findFreePort();
 
     public static String hashSHA256(String str) throws NoSuchAlgorithmException {
         System.out.print("Enter String to Hash: ");
@@ -67,6 +72,12 @@ public class Tools {
             }
         }
         throw new IllegalStateException("Could not find a free TCP/IP port to start embedded Jetty HTTP Server on");
+    }
+
+    public static String getIP(Context context) {
+        WifiManager wm = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        assert wm != null;
+        return Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
     }
 
     public static void updateLog(String log) {

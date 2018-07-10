@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dxexwxexy.server.R;
+import dxexwxexy.server.Support.Tools;
 
 public class PlacesDisplay extends AppCompatActivity {
 
@@ -57,6 +59,8 @@ public class PlacesDisplay extends AppCompatActivity {
     }
 
     private void initFloatingButtons() {
+        TextView networkInfo = findViewById(R.id.net_info_pls);
+        networkInfo.setText("Server on port: " + Tools.port + " @ " + Tools.ip);
         FloatingActionButton switchDB = findViewById(R.id.switch_categories);
         FloatingActionButton addEntry = findViewById(R.id.add_place);
         switchDB.setOnClickListener(e -> {
@@ -65,6 +69,7 @@ public class PlacesDisplay extends AppCompatActivity {
         });
         addEntry.setOnClickListener(e -> {
             // TODO: 7/9/2018 change behavior
+            Tools.updateLog("Entry in Places added");
         });
     }
 

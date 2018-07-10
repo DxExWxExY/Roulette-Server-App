@@ -3,18 +3,21 @@ package dxexwxexy.server.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import dxexwxexy.server.R;
+import dxexwxexy.server.Support.Tools;
 
 public class CategoriesDisplay extends AppCompatActivity {
-
-    private TextView networkInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,8 @@ public class CategoriesDisplay extends AppCompatActivity {
     }
 
     private void initFloatingButtons() {
-        networkInfo = findViewById(R.id.net_info_cat);
+        TextView networkInfo = findViewById(R.id.net_info_cat);
+        networkInfo.setText("Server on port: " + Tools.port + " @ " + Tools.ip);
         FloatingActionButton switchDB = findViewById(R.id.switch_places);
         FloatingActionButton addEntry = findViewById(R.id.add_category);
         switchDB.setOnClickListener(e -> {
@@ -68,7 +72,23 @@ public class CategoriesDisplay extends AppCompatActivity {
             finish();
         });
         addEntry.setOnClickListener(e -> {
-            // TODO: 7/9/2018 popup
+            AlertDialog.Builder builder = new AlertDialog.Builder(CategoriesDisplay.this);
+            View view = getLayoutInflater().inflate(R.layout.cat_entry_popup, null);
+            final EditText catEntry = findViewById(R.id.cat_entry);
+            final Button add = findViewById(R.id.cat_add);
+            add.setOnClickListener(a -> {
+                if (!catEntry.getText().toString().isEmpty()) {
+                    // TODO: 7/9/2018 add to db
+                    Tools.updateLog("Entry in Categories added");
+                } else {
+                    catEntry.setError("A category is required");
+                    catEntry.requestFocus();
+                }
+
+            });
+            builder.setView(view);
+            AlertDialog dialog = builder.create();
+            dialog.show();
         });
     }
 

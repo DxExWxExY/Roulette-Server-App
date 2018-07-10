@@ -22,4 +22,9 @@ public class ServerLog extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(() -> logs.setText(Tools.logs), 2000);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

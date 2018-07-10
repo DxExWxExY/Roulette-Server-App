@@ -74,10 +74,9 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     }
 
     private void initServerLogs() {
-        WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-        assert wm != null;
-        String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
-        Tools.updateLog("Server on Port " + String.valueOf(Tools.findFreePort()) + " @ " + ip);
+        Tools.ip = Tools.getIP(this);
+        Tools.updateLog("Server will start on port " + String.valueOf(Tools.port) + " @ " + Tools.ip);
+        // TODO: 7/9/2018 Server service init here
     }
 
     /**
