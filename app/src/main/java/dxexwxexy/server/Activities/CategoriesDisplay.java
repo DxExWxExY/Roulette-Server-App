@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,28 @@ public class CategoriesDisplay extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.server_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.erase_db:
+                // TODO: 7/9/2018 popup to erase current
+                break;
+            case R.id.erase_dbs:
+                // TODO: 7/9/2018 popup to erase all
+                break;
+            case R.id.show_logs:
+                startActivity(new Intent(CategoriesDisplay.this, ServerLog.class));
+                break;
+            case R.id.kill_app:
+                finish();
+                break;
+            case R.id.kill_service:
+                // TODO: 7/9/2018 start or stop service
+                break;
+        }
         return true;
     }
 

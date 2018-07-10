@@ -10,12 +10,14 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
@@ -27,7 +29,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dxexwxexy.server.Access.SHA256Hasher;
+import dxexwxexy.server.Support.Tools;
 import dxexwxexy.server.R;
 
 /**
@@ -51,6 +53,7 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setTitle("Sign In to Server");
+        initServerLogs();
         // Set up the login form.
         mUserView = findViewById(R.id.email);
 
@@ -68,6 +71,13 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    private void initServerLogs() {
+        WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        assert wm != null;
+        String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+        Tools.updateLog("Server on Port " + String.valueOf(Tools.findFreePort()) + " @ " + ip);
     }
 
     /**
@@ -215,7 +225,7 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         @Override
         protected Boolean doInBackground(Void... params) {
             try {
-                String hash = SHA256Hasher.hasher(mUser+mPassword);
+                String hash = Tools.hashSHA256(mUser+mPassword);
                 return hash.equals(getString(R.string.user1)) || hash.equals(getString(R.string.user2));
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();

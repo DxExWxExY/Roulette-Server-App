@@ -39,7 +39,13 @@ public class PlacesDisplay extends AppCompatActivity {
                 // TODO: 7/9/2018 popup to erase all
                 break;
             case R.id.show_logs:
-                // TODO: 7/9/2018 Log intent
+                startActivity(new Intent(PlacesDisplay.this, ServerLog.class));
+                break;
+            case R.id.kill_app:
+                finish();
+                break;
+            case R.id.kill_service:
+                // TODO: 7/9/2018 start or stop service
                 break;
         }
         return true;
